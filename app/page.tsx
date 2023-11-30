@@ -1,10 +1,11 @@
 'use client' 
 
 import Image from 'next/image'
-import React, { useState } from 'react';
+import React from 'react';
 
 interface ImageContainerProps {
   src: string;
+  onClick: () => void;
 }
 
 const ImageContainer: React.FC<ImageContainerProps> = ({ src }) => (
@@ -37,12 +38,11 @@ const AnimatedImageContainer: React.FC<ImageContainerProps & { selected: boolean
 );
 
 export default function Home() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  // const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleImageClick = (src: string) => {
-    setSelectedImage(src);
+    // setSelectedImage(src);
   };
-
 
   return (
     <main className="flex min-h-screen flex-wrap items-center justify-between p-24">
@@ -50,23 +50,23 @@ export default function Home() {
         <p>What&apos;s up!</p>
       </div>
       <div className="grid grid-cols-3 gap-4">
-        <ImageContainer src="/abstract1.png" />
-        <ImageContainer src="/abstract2.png" />
-        <ImageContainer src="/circles.png" />
-        <ImageContainer src="/circless.png" />
-        <ImageContainer src="/cray.png" />
-        <ImageContainer src="/dippindots.png" />
-        <ImageContainer src="/download.png" />
-        <ImageContainer src="/funk.png" />
-        <ImageContainer src="/o.png" />
+        <ImageContainer src="/abstract1.png" onClick={() => handleImageClick('/abstract1.png')}/>
+        <ImageContainer src="/abstract2.png" onClick={() => handleImageClick('/abstract1.png')}/>
+        <ImageContainer src="/circles.png" onClick={() => handleImageClick('/abstract1.png')}/>
+        <ImageContainer src="/circless.png" onClick={() => handleImageClick('/abstract1.png')}/>
+        <ImageContainer src="/cray.png"onClick={() => handleImageClick('/abstract1.png')} />
+        <ImageContainer src="/dippindots.png" onClick={() => handleImageClick('/abstract1.png')}/>
+        <ImageContainer src="/download.png" onClick={() => handleImageClick('/abstract1.png')}/>
+        <ImageContainer src="/funk.png" onClick={() => handleImageClick('/abstract1.png')}/>
+        <ImageContainer src="/o.png" onClick={() => handleImageClick('/abstract1.png')}/>
       </div>
 
-    
+      {/*     
         {selectedImage && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center">
             <AnimatedImageContainer src={selectedImage} selected={true} />
         </div>
-        )}
+        )} */}
     </main>
   )
 }
