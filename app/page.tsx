@@ -1,7 +1,4 @@
-'use client' 
-
 import Image from 'next/image'
-import React from 'react';
 
 interface ImageContainerProps {
   src: string;
@@ -41,6 +38,7 @@ export default function Home() {
   // const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleImageClick = (src: string) => {
+    console.log("lilili");
     // setSelectedImage(src);
   };
 
